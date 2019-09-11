@@ -3,7 +3,7 @@ from matplotlib import style
 import numpy as np 
 style.use('ggplot')
 
-class support_vector_machine:
+class Support_Vector_Machine:
     def __init__(self, visualization=True):
         self.visualization = visualization
         self.colors = {1:'r', -1:'b'}
@@ -29,9 +29,9 @@ class support_vector_machine:
         all_data = None
 
         step_sizes = [self.max_feature_value + 0.1,
-                      self.max_feature_value + 0.1,
+                      self.max_feature_value + 0.01,
                       # point of expense:
-                      self.max_feature_value + 0.1]
+                      self.max_feature_value + 0.001]
         # extremely expensive
         b_range_multiple = 5
         # we don't need to take as small of steps
@@ -118,7 +118,7 @@ class support_vector_machine:
 data_dict = {-1:np.array([[1,7],[2,8],[3,8]]), 1:np.array([[5,1],[6,-1],[7,3]])}
 
 
-svm = support_vector_machine()
+svm = Support_Vector_Machine()
 svm.fit(data=data_dict)
 svm.visualize()
 
